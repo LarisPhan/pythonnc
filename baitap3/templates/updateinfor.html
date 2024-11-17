@@ -1,0 +1,137 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Cập nhật thông tin sinh viên</title>
+    <style>
+        /* Reset một số kiểu mặc định */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        /* Cấu trúc tổng thể */
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f4f4f9;
+            color: #333;
+            line-height: 1.6;
+            padding: 20px;
+        }
+
+        h2 {
+            color: #4CAF50;
+            margin-bottom: 20px;
+            font-size: 28px;
+            text-align: center;
+        }
+
+        /* Các thông báo flash */
+        .flash {
+            padding: 15px;
+            margin-bottom: 20px;
+            border-radius: 5px;
+            font-weight: bold;
+            color: white;
+            text-align: center;
+        }
+
+        .flash.success { background-color: #4CAF50; }  /* Xanh lá */
+        .flash.error { background-color: #f44336; }  /* Đỏ */
+        .flash.info { background-color: #2196F3; }  /* Xanh dương */
+        .flash.warning { background-color: #ff9800; }  /* Cam */
+
+        /* Form cập nhật */
+        form {
+            width: 100%;
+            max-width: 600px;
+            margin: 0 auto;
+            background-color: #fff;
+            padding: 20px;
+            border-radius: 8px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+        }
+
+        label {
+            display: block;
+            margin-bottom: 8px;
+            font-size: 16px;
+            font-weight: bold;
+        }
+
+        input[type="text"], select {
+            width: 100%;
+            padding: 10px;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+            margin-bottom: 20px;
+            font-size: 16px;
+        }
+
+        input[type="text"]:focus, select:focus {
+            border-color: #4CAF50;
+            outline: none;
+        }
+
+        button {
+            padding: 12px 20px;
+            background-color: #4CAF50;  /* Màu xanh lá */
+            color: white;
+            border: none;
+            border-radius: 5px;
+            font-size: 16px;
+            cursor: pointer;
+            transition: background-color 0.3s;
+            width: 100%;
+        }
+
+        button:hover {
+            background-color: #45a049;  /* Màu xanh lá tối hơn khi hover */
+        }
+
+        button:focus {
+            outline: none;
+        }
+
+        /* Điều chỉnh cho các màn hình nhỏ */
+        @media (max-width: 768px) {
+            h2 {
+                font-size: 24px;
+            }
+
+            form {
+                padding: 15px;
+            }
+
+            input[type="text"], select, button {
+                font-size: 14px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <h2>Cập nhật thông tin sinh viên</h2>
+    {% with messages = get_flashed_messages(with_categories=true) %}
+        {% if messages %}
+            {% for category, message in messages %}
+                <div class="flash {{ category }}">{{ message|safe }}</div>
+            {% endfor %}
+        {% endif %}
+    {% endwith %}
+    <form method="post" action="{{ url_for('update_data', mssv=mssv) }}">
+        <label for="hoten">Họ tên:</label>
+        <input type="text" id="hoten" name="hoten" value="{{ hoten }}" required><br>
+        <label for="gioitinh">Giới tính:</label>
+        <select name="gioitinh" id="gioitinh">
+            <option value="Nam" {% if gioitinh == 'Nam' %}selected{% endif %}>Nam</option>
+            <option value="Nữ" {% if gioitinh == 'Nữ' %}selected{% endif %}>Nữ</option>
+            <option value="Khác" {% if gioitinh == 'Khác' %}selected{% endif %}>Khác</option>
+        </select><br>
+        <label for="quequan">Quê quán:</label>
+        <input type="text" id="quequan" name="quequan" value="{{ quequan }}" required><br>
+        <button type="submit">Cập nhật</button>
+    </form>
+</body>
+</html>

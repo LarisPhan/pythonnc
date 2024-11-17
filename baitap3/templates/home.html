@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Quản lý sinh viên</title>
+    <link rel="stylesheet" href="../static/css/styles.css">
+</head>
+<body>
+    <div class="container">
+        <h2>Danh sách sinh viên</h2>
+        {% with messages = get_flashed_messages(with_categories=true) %}
+            {% if messages %}
+                {% for category, message in messages %}
+                    <div class="flash {{ category }}">{{ message|safe }}</div>
+                {% endfor %}
+            {% endif %}
+        {% endwith %}
+        <form method="post" action="{{ url_for('home') }}">
+            <label for="search_type">Tìm kiếm thông tin:</label>
+            <select name="search_type" id="search_type">
+                <option value="mssv">MSSV</option>
+                <option value="hoten">Họ tên</option>
+            </select>
+            <input type="text" name="search_value" placeholder="Nhập từ khóa">
+            <button type="submit">Tìm kiếm</button>
+        </form>
+
+        <!-- Button to reload the data -->
+        <form style="text-align: center;" method="get" action="{{ url_for('home') }}">
+            <button type="submit">Tải lại dữ liệu</button>
+        </form>
+
+        <table border="1">
+            <thead>
+                <tr>
+                    <th>MSSV</th>
+                    <th>Họ tên</th>
+                    <th>Giới tính</th>
+                    <th>Quê quán</th>
+                    <th>Hành động</th>
+                </tr>
+            </thead>
+            <tbody>
+                {% for row in data %}
+                <tr>
+                    <td>{{ row[0] }}</td>
+                    <td>{{ row[1] }}</td>
+                    <td>{{ row[2] }}</td>
+                    <td>{{ row[3] }}</td>
+                    <td>
+                        <a href="{{ url_for('delete_data', mssv=row[0]) }}" class="btn-delete">Xóa</a>
+                        <a href="{{ url_for('update_data', mssv=row[0]) }}" class="btn-update">Cập nhật</a>
+                    </td>
+                </tr>
+                {% endfor %}
+            </tbody>
+        </table>
+        <h3>Thêm sinh viên mới</h3>
+        <form method="get" action="{{ url_for('addinfor') }}">
+            <button type="submit">Thêm sinh viên</button>
+        </form>
+    </div>
+</body>
+</html>

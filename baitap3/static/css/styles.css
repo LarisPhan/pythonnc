@@ -1,0 +1,210 @@
+/* Reset default styles */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+/* Global styles */
+body {
+    font-family: Arial, sans-serif;
+    background-color: #f4f4f9;
+    color: #333;
+    line-height: 1.6;
+    padding: 20px;
+}
+
+.container {
+    width: 80%;
+    margin: 0 auto;
+    background-color: #fff;
+    padding: 20px;
+    border-radius: 8px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+h1, h2, h3 {
+    color: #5a5a5a;
+    margin-bottom: 20px;
+    text-align: left;
+}
+
+h2 {
+    font-size: 24px;
+}
+
+/* Table styles */
+table {
+    width: 100%;
+    border-collapse: collapse;
+    margin-bottom: 20px;
+}
+
+table th, table td {
+    padding: 12px;
+    text-align: center;
+    border-bottom: 1px solid #ddd;
+}
+
+table th {
+    background-color: #f4f4f9;
+    color: #333;
+}
+
+table tr:hover {
+    background-color: #f9f9f9;
+}
+
+/* Button and link styles */
+button, .btn-back, .flash, .btn-delete, .btn-update {
+    padding: 10px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background-color 0.3s;
+}
+
+button {
+    background-color: #4CAF50;
+    color: white;
+}
+
+button:hover {
+    background-color: #45a049;
+}
+
+.btn-back {
+    display: inline-block;
+    background-color: #f1f1f1;
+    color: #333;
+    text-decoration: none;
+}
+
+.btn-back:hover {
+    background-color: #ddd;
+}
+
+/* Flash message */
+.flash {
+    padding: 15px;
+    margin-bottom: 20px;
+    border-radius: 5px;
+    font-weight: bold;
+    color: white;
+    text-align: center;
+}
+
+.flash.success { background-color: #4CAF50; }  /* Xanh lá */
+.flash.error { background-color: #f44336; }  /* Đỏ */
+.flash.info { background-color: #2196F3; }  /* Xanh dương */
+.flash.warning { background-color: #ff9800; }  /* Cam */
+
+/* Table action buttons */
+td a, td button {
+    padding: 10px;
+    border-radius: 5px;
+    margin-right: 10px;
+    text-align: center;
+}
+
+/* Delete button */
+.btn-delete {
+    background-color: #f44336; 
+    color: white;
+}
+
+.btn-delete:hover {
+    background-color: #d32f2f;  
+}
+
+/* Update button */
+.btn-update {
+    background-color: #4CAF50; 
+    color: white;
+}
+
+.btn-update:hover {
+    background-color: #45a049;  
+}
+
+/* Form styles */
+form {
+    margin-top: 20px;
+    padding: 20px;
+    background-color: #fff;
+    border-radius: 8px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    width: 100%;
+    margin: 0 auto;
+}
+
+label {
+    font-weight: bold;
+    margin-bottom: 8px;
+    display: block;
+    font-size: 16px;
+}
+
+input[type="text"], input[type="password"], select {
+    width: 100%;
+    padding: 10px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    font-size: 16px;
+    margin-bottom: 20px;
+}
+
+input[type="text"]:focus, input[type="password"]:focus, select:focus {
+    border-color: #4CAF50;
+    outline: none;
+}
+
+/* Button styles */
+button {
+    padding: 12px 20px;
+    background-color: #4CAF50;
+    color: white;
+    border: none;
+    border-radius: 5px;
+    font-size: 16px;
+    cursor: pointer;
+    transition: background-color 0.3s;
+    width: auto;
+}
+
+button:hover {
+    background-color: #45a049;
+}
+
+button:focus {
+    outline: none;
+}
+
+/* Responsive adjustments */
+@media (max-width: 768px) {
+    .container {
+        width: 100%;
+        padding: 10px;
+    }
+
+    table, th, td {
+        font-size: 14px;
+    }
+
+    td a, td button {
+        margin-right: 5px;
+        padding: 8px;
+    }
+
+    h2 {
+        font-size: 24px;
+    }
+
+    form {
+        padding: 15px;
+    }
+
+    input[type="text"], select, button {
+        font-size: 14px;
+    }
+}
