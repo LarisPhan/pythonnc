@@ -49,8 +49,12 @@
                     <td>{{ row[2] }}</td>
                     <td>{{ row[3] }}</td>
                     <td>
-                        <a href="{{ url_for('delete_data', mssv=row[0]) }}" class="btn-delete">Xóa</a>
-                        <a href="{{ url_for('update_data', mssv=row[0]) }}" class="btn-update">Cập nhật</a>
+                        <form method="post" action="{{ url_for('delete_data', mssv=row[0]) }}" style="display:inline;">
+                            <button type="submit" class="btn-delete">Xóa</button>
+                        </form>
+                        <form method="get" action="{{ url_for('update_data', mssv=row[0]) }}" style="display: inline;">
+                            <button type="submit" class="btn-update">Cập nhật</button>
+                        </form>
                     </td>
                 </tr>
                 {% endfor %}
