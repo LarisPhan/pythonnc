@@ -49,16 +49,15 @@ if __name__ == '__main__':
 
     # Thêm Tab:
     tab1 = ttk.Frame(tabControl)
-    tabControl.add(tab1, text='Home')
+    tabControl.add(tab1, text=' Trang chủ ')
     tab2 = ttk.Frame(tabControl)
-    tabControl.add(tab2, text='Tính toán')
+    tabControl.add(tab2, text=' pheptoanCoBan ')
     tab3 = ttk.Frame(tabControl)
-    tabControl.add(tab3, text='PT Bậc 2') 
+    tabControl.add(tab3, text=' giaiPtBac2 ') 
 
 
     # ----#----#----#----#----#----#----#----#
     ''' Tab 1 Contents '''
-    # ----#----#----#----#----#----#----#----#
     ### Frame 1
     mighty_1 = ttk.LabelFrame(tab1, text='Welcome!!!')
     mighty_1.pack(padx=8, pady=4, fill='both', expand=True)
@@ -155,7 +154,6 @@ if __name__ == '__main__':
 
     # ----#----#----#----#----#----#----#----#
     ''' Tab 2 Contents '''
-    # ----#----#----#----#----#----#----#----#
     mighty_2 = ttk.LabelFrame(tab2, text='Cộng, Trừ, Nhân, Chia')
     mighty_2.grid(column=0, row=0, padx=8, pady=4, sticky="EW", columnspan=3)
 
@@ -205,7 +203,7 @@ if __name__ == '__main__':
             ketqua_lb.config(text="Kết quả: ")
 
 
-    # Frame "Nhập"
+    ### Frame "Nhập"
     frame_nhap = ttk.LabelFrame(mighty_2, text="Nhập", padding=(10, 10))
     frame_nhap.grid(column=0, row=0, padx=5, pady=5, sticky='nswe')
 
@@ -222,7 +220,7 @@ if __name__ == '__main__':
     text_b.grid(column=1, row=1, padx=5, pady=5)
 
 
-    # Frame "Tính"
+    ### Frame "Tính"
     frame_tinh = ttk.LabelFrame(mighty_2, text="Tính", padding=(10, 10))
     frame_tinh.grid(column=1, row=0, padx=5, pady=5, sticky='nswe')
 
@@ -250,7 +248,6 @@ if __name__ == '__main__':
 
     # ----#----#----#----#----#----#----#----#
     ''' Tab 3 Contents '''
-    # ----#----#----#----#----#----#----#----#
     mighty_3 = ttk.LabelFrame(tab3, text='Giải phương trình bậc 2')
     mighty_3.grid(column=0, row=0, padx=8, pady=4, sticky="EW", columnspan=3)
 
