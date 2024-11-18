@@ -11,7 +11,6 @@ if __name__ == '__main__':
     win.title("Bài tập số 1 - Python NC")  # Thêm tiêu đề
     win.geometry("400x300")  # Kích thước
     win.resizable(True, True)
-    win.iconbitmap('./iconpython.ico') 
 
     # Hàm căn giữa màn hình
     def center_window(window):
